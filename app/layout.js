@@ -15,7 +15,7 @@ const outfit = Outfit({
 })
 
 export const metadata = {
-  title: 'PortfolioAI — Generate Your Portfolio in 60 Seconds',
+  title: 'PortfolioAI — Build Your Portfolio with AI',
   description: 'Paste your CV, get a live portfolio website instantly. Powered by AI.',
 }
 
