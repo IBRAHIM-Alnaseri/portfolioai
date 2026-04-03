@@ -62,6 +62,7 @@ export default function HomePage() {
 
   return (
     <div style={{ minHeight: '100vh', background: '#080810', color: '#e8e8f0', fontFamily: 'system-ui, sans-serif' }}>
+      {/* Nav */}
       <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 40px', borderBottom: '1px solid #1a1a2e' }}>
         <div style={{ fontFamily: 'serif', fontSize: 22, fontWeight: 900, fontStyle: 'italic' }}>
           Portfolio<span style={{ color: '#7c6dfa' }}>AI</span>
@@ -77,24 +78,26 @@ export default function HomePage() {
         </div>
       </nav>
 
+      {/* Hero */}
       <div style={{ textAlign: 'center', padding: '80px 20px 60px' }}>
         <div style={{ display: 'inline-block', background: 'rgba(124,109,250,0.15)', border: '1px solid rgba(124,109,250,0.3)', borderRadius: 20, padding: '6px 16px', fontSize: 12, color: '#7c6dfa', marginBottom: 24, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-          Powered by Gemini · Claude · GPT-4
+          Multi-Model AI · Professional Portfolios
         </div>
         <h1 style={{ fontSize: 'clamp(36px, 6vw, 72px)', fontWeight: 900, lineHeight: 1.1, margin: '0 0 20px', fontFamily: 'serif' }}>
           Your Portfolio,<br />
           <span style={{ background: 'linear-gradient(135deg, #7c6dfa, #fa6d9a)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-            Built by AI in 60s
+            Built by AI Instantly
           </span>
         </h1>
         <p style={{ fontSize: 18, color: '#606080', maxWidth: 480, margin: '0 auto 48px', lineHeight: 1.6 }}>
-          Paste your CV. Get a stunning, live portfolio website. No design skills needed.
+          Paste your CV or upload a file. Get a stunning, live portfolio website. No design skills needed.
         </p>
 
+        {/* Form */}
         {!isSignedIn ? (
           <div style={{ background: '#13131f', border: '1px solid #2a2a40', borderRadius: 20, padding: 40, maxWidth: 480, margin: '0 auto' }}>
             <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 12 }}>Create Your Portfolio</div>
-            <p style={{ color: '#606080', marginBottom: 24, fontSize: 14 }}>Sign in to get started — it's free.</p>
+            <p style={{ color: '#606080', marginBottom: 24, fontSize: 14 }}>Sign in with your email to get started — it’s free.</p>
             <SignInButton mode="modal">
               <button style={{ width: '100%', padding: '14px', background: 'linear-gradient(135deg, #7c6dfa, #fa6d9a)', border: 'none', borderRadius: 12, color: 'white', fontWeight: 700, fontSize: 16, cursor: 'pointer' }}>
                 Get Started Free →
@@ -114,6 +117,7 @@ export default function HomePage() {
               </div>
             </div>
 
+            {/* Upload mode toggle */}
             <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
               {['text', 'file'].map(mode => (
                 <button key={mode} type="button" onClick={() => setUploadMode(mode)}
@@ -138,6 +142,7 @@ export default function HomePage() {
               </div>
             )}
 
+            {/* Theme */}
             <div style={{ marginBottom: 24 }}>
               <label style={{ fontSize: 12, color: '#7070a0', letterSpacing: '0.1em', textTransform: 'uppercase', display: 'block', marginBottom: 8 }}>Theme</label>
               <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
@@ -153,18 +158,19 @@ export default function HomePage() {
             {error && <div style={{ background: 'rgba(250,100,100,0.1)', border: '1px solid rgba(250,100,100,0.3)', borderRadius: 8, padding: '10px 14px', color: '#fa6464', marginBottom: 16, fontSize: 13 }}>{error}</div>}
 
             <button type="submit" disabled={loading} style={{ width: '100%', padding: '14px', background: loading ? '#3a3a50' : 'linear-gradient(135deg, #7c6dfa, #fa6d9a)', border: 'none', borderRadius: 12, color: 'white', fontWeight: 700, fontSize: 16, cursor: loading ? 'not-allowed' : 'pointer', transition: 'opacity 0.2s' }}>
-              {loading ? 'Running 3-model AI pipeline: Gemini → Claude → GPT-4…' : 'Generate My Portfolio →'}
+              {loading ? 'Generating your portfolio…' : 'Generate My Portfolio →'}
             </button>
           </form>
         )}
       </div>
 
+      {/* Features */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 20, maxWidth: 900, margin: '0 auto', padding: '60px 40px' }}>
         {[
-          { icon: '🤖', title: '3-Model AI Pipeline', desc: 'Gemini extracts, Claude writes, GPT-4 polishes' },
-          { icon: '⚡', title: '60-Second Build', desc: 'From CV paste to live portfolio instantly' },
-          { icon: '🎨', title: '5 Pro Themes', desc: 'Minimal, Dark, Glass, Bold, Neon' },
-          { icon: '📊', title: 'Analytics', desc: 'Track who views your portfolio (Pro)' },
+          { icon: '🤖', title: 'Advanced AI Pipeline', desc: 'Multiple specialized models work together to extract, write, and refine your portfolio' },
+          { icon: '⚡', title: 'Fast Generation', desc: 'From CV to live portfolio as fast as possible — no waiting, no fuss' },
+          { icon: '🎨', title: '5 Pro Themes', desc: 'Minimal, Dark, Glass, Bold, and Neon — pick your style' },
+          { icon: '🌍', title: 'Works Everywhere', desc: 'Sign in with email. Works in Turkey, the Middle East, Europe, and globally' },
         ].map((f, i) => (
           <div key={i} style={{ background: '#13131f', border: '1px solid #2a2a40', borderRadius: 16, padding: 24 }}>
             <div style={{ fontSize: 28, marginBottom: 10 }}>{f.icon}</div>
@@ -174,8 +180,9 @@ export default function HomePage() {
         ))}
       </div>
 
+      {/* Footer */}
       <footer style={{ textAlign: 'center', padding: '40px 20px', borderTop: '1px solid #1a1a2e', color: '#404060', fontSize: 13 }}>
-        PortfolioAI · Built with Claude, Gemini & GPT-4
+        PortfolioAI · Powered by advanced AI technology
       </footer>
     </div>
   )
